@@ -11,11 +11,12 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'pub_date')
+    list_display = ('title', 'pub_date', 'is_published')
 
 @admin.register(models.ImageModel)
 class ImageModelAdmin(admin.ModelAdmin):
-    list_display = ('image', 'post', 'index')
+    list_display = ('post', 'index')
+
 
 # class ImageInline(admin.TabularInline):
 #     model = ImageModel

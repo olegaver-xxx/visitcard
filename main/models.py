@@ -12,6 +12,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField('post content')
     pub_date = models.DateTimeField(auto_now_add=True)
+    is_published = models.BooleanField(default=False)
     def __str__(self):
         return self.title
     class Meta:
@@ -22,3 +23,5 @@ class ImageModel(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     image = ThumbnailerImageField(upload_to='images/', blank=True, null=True)
     index = models.PositiveIntegerField(default=0, blank=True)
+    def __str__(self):
+        return self.post.title
